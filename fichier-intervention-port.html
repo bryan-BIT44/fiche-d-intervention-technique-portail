@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Fiche d’Intervention Technique</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 25px;
+    max-width: 900px;
+    margin: auto;
+    border-radius: 8px;
+}
+
+h1, h2 {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.checkbox-group {
+    margin-top: 5px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 15px;
+    background: #2c7be5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1a5fd1;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="fiche">
+
+<h1>📋 FICHE D’INTERVENTION TECHNIQUE</h1>
+<h2>Portail & Automatisme</h2>
+
+<div class="section">
+<h2>1. Informations Client</h2>
+
+<label>Nom Prénom :
+<input type="text">
+</label>
+
+<label>Adresse d’intervention :
+<input type="text">
+</label>
+
+<label>Téléphone :
+<input type="text">
+</label>
+
+<label>Email :
+<input type="email">
+</label>
+</div>
+
+<div class="section">
+<h2>2. Installation Portail</h2>
+
+<label>Type de portail :</label>
+<div class="checkbox-group">
+<input type="checkbox"> Coulissant
+<input type="checkbox"> Coulissant + portillon intégré
+<input type="checkbox"> Battant
+</div>
+
+<label>Dimensions :
+<input type="text">
+</label>
+
+<label>Rail déjà en place :</label>
+<div class="checkbox-group">
+<input type="checkbox"> Oui
+<input type="checkbox"> Non
+</div>
+
+<label>Rattrapage béton pour rail :</label>
+<div class="checkbox-group">
+<input type="checkbox"> Oui
+<input type="checkbox"> Non
+</div>
+
+<label>Si BXV :</label>
+<div class="checkbox-group">
+<input type="checkbox"> 400
+<input type="checkbox"> 600
+<input type="checkbox"> 1000
+</div>
+
+<label>Moteur en hauteur :</label>
+<div class="checkbox-group">
+<input type="checkbox"> Oui
+<input type="checkbox"> Non
+</div>
+
+<label>Traversée chaussée à faire :</label>
+<div class="checkbox-group">
+<input type="checkbox"> Oui
+<input type="checkbox"> Non
+</div>
+
+<label>Gaine déjà passée :</label>
+<div class="checkbox-group">
+<input type="checkbox"> Oui
+<input type="checkbox"> Non
+</div>
+
+<label>Alimentation déjà à l’arrivée :</label>
+<div class="checkbox-group">
+<input type="checkbox"> Oui
+<input type="checkbox"> Non
+</div>
+
+<label>Nombre de télécommandes en plus :</label>
+<div class="checkbox-group">
+<input type="checkbox"> 1
+<input type="checkbox"> 2
+<input type="checkbox"> 3
+<input type="checkbox"> 4
+<input type="checkbox"> 5
+</div>
+
+<label>Observations :
+<textarea rows="4"></textarea>
+</label>
+
+</div>
+
+<div class="section">
+<h2>3. Matériel à prévoir</h2>
+
+<label>Soudure :</label>
+<div class="checkbox-group">
+<input type="checkbox"> Oui
+<input type="checkbox"> Non
+</div>
+
+<label>Gaine :</label>
+<div class="checkbox-group">
+<input type="checkbox"> Oui
+<input type="checkbox"> Non
+</div>
+
+<label>Tube carré :</label>
+<div class="checkbox-group">
+<input type="checkbox"> 50
+<input type="checkbox"> 80
+<input type="checkbox"> 100
+</div>
+
+<label>Alimentation :</label>
+<div class="checkbox-group">
+<input type="checkbox"> Oui
+<input type="checkbox"> Non
+</div>
+
+<label>Date prévisionnelle d’intervention :
+<input type="date">
+</label>
+
+</div>
+
+<button onclick="generatePDF()">📥 Enregistrer en PDF</button>
+
+</div>
+
+<script>
+function generatePDF() {
+    const element = document.getElementById("fiche");
+    const opt = {
+        margin:       0.5,
+        filename:     'Fiche_Intervention_Portail.pdf',
+        image:        { type: 'jpeg', quality: 0.98 },
+        html2canvas:  { scale: 2 },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+}
+</script>
+
+</body>
+</html>
