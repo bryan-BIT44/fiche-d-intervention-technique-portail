@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fiche d'Intervention Technique - Portail</title>
+<title>Fiche d'Intervention Technique</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
@@ -11,49 +11,39 @@
 body {
     font-family: Arial, sans-serif;
     background: #f4f4f9;
-    padding: 10px;
-    margin: 0;
+    padding: 20px;
 }
 
 .container {
-    width: 190mm;
+    width: 190mm; /* réduit pour éviter débordement */
     margin: auto;
     background: white;
-    padding: 10mm;
+    padding: 15mm;
     box-sizing: border-box;
-    border-radius: 8px;
 }
 
 h1 {
     text-align: center;
     color: #2c3e50;
     border-bottom: 2px solid #3498db;
-    padding-bottom: 5px;
-    font-size: 20px;
-    margin: 0 0 5px 0;
-}
-
-.subtitle {
-    text-align: center;
-    font-style: italic;
-    margin-bottom: 10px;
-    font-size: 14px;
+    padding-bottom: 8px;
+    font-size: 22px;
 }
 
 h2 {
     background: #3498db;
     color: white;
-    padding: 6px;
-    font-size: 14px;
+    padding: 8px;
+    font-size: 16px;
     border-radius: 4px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px;
 }
 
 .grid-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px 15px;
+    gap: 12px;
+    margin-top: 10px;
 }
 
 .field {
@@ -63,57 +53,60 @@ h2 {
 
 label {
     font-weight: bold;
-    margin-bottom: 3px;
-    font-size: 12px;
+    margin-bottom: 4px;
+    font-size: 13px;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-input[type="date"],
-textarea {
-    padding: 5px;
+input[type="date"] {
+    padding: 6px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 12px;
+    font-size: 13px;
     width: 100%;
     box-sizing: border-box;
 }
 
-textarea {
-    resize: none;
-}
-
 .checkbox-group {
     display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    align-items: center;
-    font-size: 12px;
+    gap: 10px;
 }
 
-.checkbox-group label {
-    font-weight: normal;
+.camera-list {
+    list-style: none;
+    padding: 0;
+}
+
+.camera-list li {
+    margin-bottom: 8px;
     display: flex;
     align-items: center;
-    gap: 4px;
+}
+
+.camera-list label {
+    width: 90px;
+}
+
+.camera-list input {
+    flex: 1;
 }
 
 table {
     width: 100%;
-    margin-top: 5px;
+    margin-top: 15px;
     border-collapse: collapse;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 td {
-    padding: 4px;
-    vertical-align: middle;
+    padding: 6px 4px;
 }
 
 .btn-container {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 button {
@@ -126,10 +119,19 @@ button {
     cursor: pointer;
 }
 
+/* Version impression */
 @media print {
-    body { padding: 0; background: white; }
-    .btn-container { display: none; }
-    .container { width: 100%; padding: 5mm; border: none; }
+    body {
+        padding: 0;
+        background: white;
+    }
+    .btn-container {
+        display: none;
+    }
+    .container {
+        width: 100%;
+        padding: 10mm;
+    }
 }
 </style>
 </head>
@@ -139,160 +141,124 @@ button {
 <div class="container" id="intervention-form">
 
 <h1>FICHE D'INTERVENTION TECHNIQUE</h1>
-<p class="subtitle">Portail & Automatisme</p>
+<p style="text-align:center;font-style:italic;">Système de vidéosurveillance</p>
 
 <h2>1. INFORMATIONS CLIENT</h2>
+
 <div class="grid-form">
-    <div class="field">
-        <label>Nom Prénom :</label>
-        <input type="text">
-    </div>
-    <div class="field">
-        <label>Téléphone :</label>
-        <input type="tel">
-    </div>
-    <div class="field" style="grid-column: span 2;">
-        <label>Adresse d'intervention :</label>
-        <input type="text">
-    </div>
-    <div class="field" style="grid-column: span 2;">
-        <label>Email :</label>
-        <input type="email">
-    </div>
+<div class="field">
+<label>Nom Prénom :</label>
+<input type="text">
 </div>
 
-<h2>2. INSTALLATION PORTAIL</h2>
-<div class="grid-form">
-    <div class="field">
-        <label>Type de portail :</label>
-        <div class="checkbox-group">
-            <label><input type="checkbox"> Coulissant</label>
-            <label><input type="checkbox"> + portillon</label>
-            <label><input type="checkbox"> Battant</label>
-        </div>
-    </div>
-    <div class="field">
-        <label>Dimensions :</label>
-        <input type="text">
-    </div>
-    <div class="field">
-        <label>Rail déjà en place :</label>
-        <div class="checkbox-group">
-            <label><input type="radio" name="rail"> Oui</label>
-            <label><input type="radio" name="rail"> Non</label>
-        </div>
-    </div>
-    <div class="field">
-        <label>Rattrapage béton :</label>
-        <div class="checkbox-group">
-            <label><input type="radio" name="beton"> Oui</label>
-            <label><input type="radio" name="beton"> Non</label>
-        </div>
-    </div>
-    <div class="field">
-        <label>BXV :</label>
-        <div class="checkbox-group">
-            <label><input type="checkbox"> 400</label>
-            <label><input type="checkbox"> 600</label>
-            <label><input type="checkbox"> 1000</label>
-        </div>
-    </div>
-    <div class="field">
-        <label>Moteur en hauteur :</label>
-        <div class="checkbox-group">
-            <label><input type="radio" name="moteur"> Oui</label>
-            <label><input type="radio" name="moteur"> Non</label>
-        </div>
-    </div>
-    <div class="field">
-        <label>Traversée chaussée :</label>
-        <div class="checkbox-group">
-            <label><input type="radio" name="chaussee"> Oui</label>
-            <label><input type="radio" name="chaussee"> Non</label>
-        </div>
-    </div>
-    <div class="field">
-        <label>Gaine déjà passée :</label>
-        <div class="checkbox-group">
-            <label><input type="radio" name="gaine"> Oui</label>
-            <label><input type="radio" name="gaine"> Non</label>
-        </div>
-    </div>
-    <div class="field">
-        <label>Alimentation à l’arrivée :</label>
-        <div class="checkbox-group">
-            <label><input type="radio" name="alim"> Oui</label>
-            <label><input type="radio" name="alim"> Non</label>
-        </div>
-    </div>
-    <div class="field">
-        <label>Télécommandes sup. :</label>
-        <div class="checkbox-group">
-            <label><input type="checkbox"> 1</label>
-            <label><input type="checkbox"> 2</label>
-            <label><input type="checkbox"> 3</label>
-            <label><input type="checkbox"> 4</label>
-            <label><input type="checkbox"> 5</label>
-        </div>
-    </div>
+<div class="field">
+<label>Téléphone :</label>
+<input type="tel">
 </div>
 
-<div class="field" style="margin-top:10px;">
-    <label>Observations :</label>
-    <textarea rows="3"></textarea>
+<div class="field" style="grid-column: span 2;">
+<label>Adresse d'intervention :</label>
+<input type="text">
 </div>
+
+<div class="field" style="grid-column: span 2;">
+<label>Email :</label>
+<input type="email">
+</div>
+</div>
+
+<h2>2. INSTALLATION VIDÉOSURVEILLANCE</h2>
+
+<div class="grid-form">
+<div class="field">
+<label>Nombre de caméras :</label>
+<input type="text">
+</div>
+
+<div class="field">
+<label>Type :</label>
+<div class="checkbox-group">
+<label><input type="checkbox"> HDCVI</label>
+<label><input type="checkbox"> IP</label>
+</div>
+</div>
+</div>
+
+<label style="margin-top:15px;display:block;font-weight:bold;">Emplacements :</label>
+
+<ul class="camera-list">
+<li><label>Caméra 1 :</label><input type="text"></li>
+<li><label>Caméra 2 :</label><input type="text"></li>
+<li><label>Caméra 3 :</label><input type="text"></li>
+<li><label>Caméra 4 :</label><input type="text"></li>
+</ul>
 
 <h2>3. MATÉRIEL À PRÉVOIR</h2>
+
+<div class="grid-form">
+<div class="field">
+<label>Câblage :</label>
+<input type="text">
+</div>
+
+<div class="field">
+<label>Carte SD :</label>
+<div class="checkbox-group">
+<label><input type="checkbox"> 64GB</label>
+<label><input type="checkbox"> 128GB</label>
+</div>
+</div>
+</div>
+
 <table>
-    <tr>
-        <td width="15%"><strong>Soudure :</strong></td>
-        <td width="35%">
-            <label style="display:inline; font-weight:normal;"><input type="radio" name="soudure"> Oui</label>
-            <label style="display:inline; font-weight:normal; margin-left:10px;"><input type="radio" name="soudure"> Non</label>
-        </td>
-        <td width="15%"><strong>Gaine :</strong></td>
-        <td width="35%">
-            <label style="display:inline; font-weight:normal;"><input type="radio" name="gaine2"> Oui</label>
-            <label style="display:inline; font-weight:normal; margin-left:10px;"><input type="radio" name="gaine2"> Non</label>
-        </td>
-    </tr>
-    <tr>
-        <td><strong>Tube carré :</strong></td>
-        <td>
-            <label style="display:inline; font-weight:normal;"><input type="checkbox"> 50</label>
-            <label style="display:inline; font-weight:normal; margin-left:5px;"><input type="checkbox"> 80</label>
-            <label style="display:inline; font-weight:normal; margin-left:5px;"><input type="checkbox"> 100</label>
-        </td>
-        <td><strong>Alimentation :</strong></td>
-        <td>
-            <label style="display:inline; font-weight:normal;"><input type="radio" name="alim2"> Oui</label>
-            <label style="display:inline; font-weight:normal; margin-left:10px;"><input type="radio" name="alim2"> Non</label>
-        </td>
-    </tr>
+<tr>
+<td><strong>Vis bois :</strong></td>
+<td><input type="radio" name="vis_bois"> Oui <input type="radio" name="vis_bois"> Non</td>
+<td><strong>Vis placo :</strong></td>
+<td><input type="radio" name="vis_placo"> Oui <input type="radio" name="vis_placo"> Non</td>
+</tr>
+
+<tr>
+<td><strong>Vis tôle :</strong></td>
+<td><input type="radio" name="vis_tole"> Oui <input type="radio" name="vis_tole"> Non</td>
+<td><strong>Vis béton :</strong></td>
+<td><input type="radio" name="vis_beton"> Oui <input type="radio" name="vis_beton"> Non</td>
+</tr>
 </table>
 
-<div class="field" style="margin-top:10px; border-top: 1px solid #eee; padding-top: 10px;">
-    <label>Date prévisionnelle d’intervention :</label>
-    <input type="date" style="width:180px;">
+<div class="field" style="margin-top:15px;">
+<label>Date prévisionnelle :</label>
+<input type="date" style="width:200px;">
 </div>
 
 </div>
 
 <div class="btn-container">
-    <button onclick="generatePDF()">Générer le PDF sur une page</button>
+<button onclick="generatePDF()">Générer le PDF</button>
 </div>
 
 <script>
 function generatePDF() {
-    const element = document.getElementById('intervention-form');
-    const opt = {
-        margin: [5, 5, 5, 5],
-        filename: 'Fiche_Intervention_Portail.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2, useCORS: true },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-    html2pdf().set(opt).from(element).save();
+
+const element = document.getElementById('intervention-form');
+
+const opt = {
+    margin: [10, 10, 10, 10],
+    filename: 'Fiche_Intervention.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { 
+        scale: 2,
+        scrollY: 0
+    },
+    jsPDF: { 
+        unit: 'mm',
+        format: 'a4',
+        orientation: 'portrait'
+    },
+    pagebreak: { mode: ['css'] }
+};
+
+html2pdf().set(opt).from(element).save();
 }
 </script>
 
