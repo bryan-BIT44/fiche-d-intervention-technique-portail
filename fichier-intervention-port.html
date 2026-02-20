@@ -11,14 +11,14 @@
 body {
     font-family: Arial, sans-serif;
     background: #f4f4f9;
-    padding: 10px;
+    padding: 20px;
 }
 
 .container {
-    width: 180mm; /* réduit */
+    width: 190mm;
     margin: auto;
     background: white;
-    padding: 10mm; /* réduit */
+    padding: 15mm;
     box-sizing: border-box;
 }
 
@@ -26,26 +26,24 @@ h1 {
     text-align: center;
     color: #2c3e50;
     border-bottom: 2px solid #3498db;
-    padding-bottom: 5px;
-    font-size: 20px;
-    margin-bottom: 5px;
+    padding-bottom: 8px;
+    font-size: 22px;
 }
 
 h2 {
     background: #3498db;
     color: white;
-    padding: 6px;
-    font-size: 14px;
+    padding: 8px;
+    font-size: 16px;
     border-radius: 4px;
-    margin-top: 12px;
-    margin-bottom: 5px;
+    margin-top: 20px;
 }
 
 .grid-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-top: 5px;
+    gap: 12px;
+    margin-top: 10px;
 }
 
 .field {
@@ -55,8 +53,8 @@ h2 {
 
 label {
     font-weight: bold;
-    margin-bottom: 3px;
-    font-size: 12px;
+    margin-bottom: 4px;
+    font-size: 13px;
 }
 
 input[type="text"],
@@ -64,10 +62,10 @@ input[type="email"],
 input[type="tel"],
 input[type="date"],
 textarea {
-    padding: 4px;
+    padding: 6px;
     border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 12px;
+    border-radius: 4px;
+    font-size: 13px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -78,33 +76,32 @@ textarea {
 
 .checkbox-group {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     flex-wrap: wrap;
-    font-size: 12px;
 }
 
 table {
     width: 100%;
-    margin-top: 8px;
+    margin-top: 15px;
     border-collapse: collapse;
-    font-size: 12px;
+    font-size: 13px;
 }
 
 td {
-    padding: 4px;
+    padding: 6px 4px;
 }
 
 .btn-container {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 button {
     background: #27ae60;
     color: white;
     border: none;
-    padding: 8px 18px;
-    font-size: 14px;
+    padding: 10px 20px;
+    font-size: 15px;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -119,7 +116,7 @@ button {
     }
     .container {
         width: 100%;
-        padding: 8mm;
+        padding: 10mm;
     }
 }
 </style>
@@ -130,7 +127,7 @@ button {
 <div class="container" id="intervention-form">
 
 <h1>FICHE D'INTERVENTION TECHNIQUE</h1>
-<p style="text-align:center;font-style:italic;font-size:12px;margin:3px;">Portail & Automatisme</p>
+<p style="text-align:center;font-style:italic;">Portail & Automatisme</p>
 
 <h2>1. INFORMATIONS CLIENT</h2>
 
@@ -146,7 +143,7 @@ button {
 </div>
 
 <div class="field" style="grid-column: span 2;">
-<label>Adresse :</label>
+<label>Adresse d'intervention :</label>
 <input type="text">
 </div>
 
@@ -159,10 +156,12 @@ button {
 <h2>2. INSTALLATION PORTAIL</h2>
 
 <div class="grid-form">
+
 <div class="field">
-<label>Type :</label>
+<label>Type de portail :</label>
 <div class="checkbox-group">
 <label><input type="checkbox"> Coulissant</label>
+<label><input type="checkbox"> Coulissant + portillon intégré</label>
 <label><input type="checkbox"> Battant</label>
 </div>
 </div>
@@ -173,10 +172,18 @@ button {
 </div>
 
 <div class="field">
-<label>Rail :</label>
+<label>Rail déjà en place :</label>
 <div class="checkbox-group">
 <label><input type="radio" name="rail"> Oui</label>
 <label><input type="radio" name="rail"> Non</label>
+</div>
+</div>
+
+<div class="field">
+<label>Rattrapage béton :</label>
+<div class="checkbox-group">
+<label><input type="radio" name="beton"> Oui</label>
+<label><input type="radio" name="beton"> Non</label>
 </div>
 </div>
 
@@ -188,22 +195,91 @@ button {
 <label><input type="checkbox"> 1000</label>
 </div>
 </div>
+
+<div class="field">
+<label>Moteur en hauteur :</label>
+<div class="checkbox-group">
+<label><input type="radio" name="moteur"> Oui</label>
+<label><input type="radio" name="moteur"> Non</label>
+</div>
 </div>
 
-<h2>3. MATÉRIEL</h2>
+<div class="field">
+<label>Traversée chaussée :</label>
+<div class="checkbox-group">
+<label><input type="radio" name="chaussee"> Oui</label>
+<label><input type="radio" name="chaussee"> Non</label>
+</div>
+</div>
+
+<div class="field">
+<label>Gaine déjà passée :</label>
+<div class="checkbox-group">
+<label><input type="radio" name="gaine"> Oui</label>
+<label><input type="radio" name="gaine"> Non</label>
+</div>
+</div>
+
+<div class="field">
+<label>Alimentation à l’arrivée :</label>
+<div class="checkbox-group">
+<label><input type="radio" name="alim"> Oui</label>
+<label><input type="radio" name="alim"> Non</label>
+</div>
+</div>
+
+</div>
+
+<label style="margin-top:15px;display:block;font-weight:bold;">Télécommandes supplémentaires :</label>
+<div class="checkbox-group">
+<label><input type="checkbox"> 1</label>
+<label><input type="checkbox"> 2</label>
+<label><input type="checkbox"> 3</label>
+<label><input type="checkbox"> 4</label>
+<label><input type="checkbox"> 5</label>
+</div>
+
+<div class="field" style="margin-top:15px;">
+<label>Observations :</label>
+<textarea rows="4"></textarea>
+</div>
+
+<h2>3. MATÉRIEL À PRÉVOIR</h2>
 
 <table>
 <tr>
 <td><strong>Soudure :</strong></td>
-<td><input type="radio" name="soudure"> Oui <input type="radio" name="soudure"> Non</td>
+<td>
+<input type="radio" name="soudure"> Oui
+<input type="radio" name="soudure"> Non
+</td>
+
 <td><strong>Gaine :</strong></td>
-<td><input type="radio" name="gaine"> Oui <input type="radio" name="gaine"> Non</td>
+<td>
+<input type="radio" name="gaine2"> Oui
+<input type="radio" name="gaine2"> Non
+</td>
+</tr>
+
+<tr>
+<td><strong>Tube carré :</strong></td>
+<td>
+<input type="checkbox"> 50
+<input type="checkbox"> 80
+<input type="checkbox"> 100
+</td>
+
+<td><strong>Alimentation :</strong></td>
+<td>
+<input type="radio" name="alim2"> Oui
+<input type="radio" name="alim2"> Non
+</td>
 </tr>
 </table>
 
-<div class="field" style="margin-top:8px;">
-<label>Date :</label>
-<input type="date" style="width:180px;">
+<div class="field" style="margin-top:15px;">
+<label>Date prévisionnelle d’intervention :</label>
+<input type="date" style="width:200px;">
 </div>
 
 </div>
@@ -214,14 +290,23 @@ button {
 
 <script>
 function generatePDF() {
+
 const element = document.getElementById('intervention-form');
 
 const opt = {
-    margin: [5, 5, 5, 5], /* réduit */
+    margin: [10, 10, 10, 10],
     filename: 'Fiche_Intervention_Portail.pdf',
     image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { scale: 2, scrollY: 0 },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    html2canvas: { 
+        scale: 2,
+        scrollY: 0
+    },
+    jsPDF: { 
+        unit: 'mm',
+        format: 'a4',
+        orientation: 'portrait'
+    },
+    pagebreak: { mode: ['css'] }
 };
 
 html2pdf().set(opt).from(element).save();
